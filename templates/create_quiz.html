@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #4b0082, #1e3c72);
+            min-height: 100vh;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 20px;
+        }
+        .quiz-container {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(255,255,255,0.07);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        .question-group ,select {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .question-group input,#quizid {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            width: 100%;
+            outline: none;
+        }
+        .btn-theme {
+            background: white;
+            color: #4b0082;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-theme:hover {
+            background: #ffce00;
+            color: black;
+            transform: translateY(-2px);
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h2>Create a New Quiz 📝</h2>
+        <form action="/create_quiz" method="post" >
+            {% csrf_token %}
+            <div id="questions-container">
+                <input id="quizid" type="text" name="quizid" placeholder="Quiz id" required>
+                <div class="question-group">
+                    <input type="text" name="question" placeholder="Question" required>
+                    <input type="text" name="op1" placeholder="Option 1" required>
+                    <input type="text" name="op2" placeholder="Option 2" required>
+                    <input type="text" name="op3" placeholder="Option 3" required>
+                    <input type="text" name="op4" placeholder="Option 4" required>
+
+                    <select name="correct_option" required>
+                        <option value="">-- Select Correct Option --</option>
+                        <option value="op1">Option 1</option>
+                        <option value="op2">Option 2</option>
+                        <option value="op3">Option 3</option>
+                        <option value="op4">Option 4</option>
+                    </select>
+                    <input type="text" name="mark" placeholder="Enter Marks or Weightage" required>
+                </div>
+                
+
+
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <button type="button" class="btn-theme" onclick="addQuestion()">➕ Add New Question</button>
+            <button type="submit" class="btn-theme">✅ Submit Questions</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function addQuestion() {
+        const container = document.getElementById('questions-container');
+        const group = container.querySelector('.question-group');
+        const newGroup = group.cloneNode(true);
+        newGroup.querySelectorAll('input').forEach(input => input.value = '');
+        container.appendChild(newGroup);
+    }
+</script>
+
+</body>
+</html>

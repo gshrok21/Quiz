@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Scorecard</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #4b0082, #1e90ff);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .score-container {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        padding: 30px;
+        border-radius: 15px;
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
+        color: #ffce00;
+    }
+
+    .score {
+        font-size: 3em;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+
+    .percentage {
+        font-size: 1.5em;
+        color: #00ffcc;
+        margin-bottom: 20px;
+    }
+
+    .details {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+
+    .detail-box {
+        background: rgba(255,255,255,0.15);
+        padding: 15px;
+        border-radius: 10px;
+        width: 40%;
+        font-weight: bold;
+    }
+
+    .detail-box.correct {
+        color: #00ff99;
+    }
+
+    .detail-box.incorrect {
+        color: #ff4d4d;
+    }
+
+    .btn {
+        background: #ffce00;
+        color: #4b0082;
+        padding: 12px 20px;
+        border-radius: 8px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background 0.3s;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn:hover {
+        background: #ffdd33;
+    }
+</style>
+</head>
+<body>
+
+<div class="score-container">
+    {% for result in data %}
+    <h1>Quiz Completed 🎉</h1>
+    <div class="score">{{result.score}}/{{result.total}}</div>
+    
+    <div class="details">
+        <div class="detail-box correct">✅ Correct: {{result.correct}}</div>
+        <div class="detail-box incorrect">❌ Incorrect: {{result.incorrect}}</div>
+    </div>
+    {% endfor %}
+
+    <a href="/" class="btn">Back to Dashboard</a>
+</div>
+
+</body>
+</html>

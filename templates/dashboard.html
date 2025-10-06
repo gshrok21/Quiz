@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quiz Dashboard</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+  body {
+    background: linear-gradient(135deg, #4b0082, #1e3c72);
+    min-height: 100vh;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 20px;
+  }
+  
+  .btn-custom {
+    background: white;
+    color: #4b0082;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.6rem;
+    transition: 0.3s;
+    max-width: 80px;
+  }
+  .btn-custom:hover {
+    background: #ddd;
+  }
+  .dashboard-box {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  }
+  .welcome-section {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .welcome-section h2 {
+    font-weight: bold;
+  }
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .dashboard-card {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+  }
+  .dashboard-card:hover {
+    background: white;
+    color: #4b0082;
+    transform: translateY(-5px);
+  }
+  .dashboard-card h4 {
+    margin-top: 1rem;
+  }
+  .icon {
+    font-size: 2.5rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="dashboard-box">
+  <!-- Welcome Section -->
+  
+  <div class="welcome-section">
+      {% if request.user.is_authenticated %}
+    <h2>Welcome, <span id="fullName">{{request.user.first_name}}</span> 👋</h2>
+    <p>Your username: <strong id="username">{{request.user.username}}</strong></p>
+  <button type="submit" class="btn btn-custom" onclick="location.href='/logout_page'">logout</button>
+  {% else %}
+  <button type="submit" class="btn btn-custom" onclick="location.href='/signup'">signup</button>
+  <button type="submit" class="btn btn-custom" onclick="location.href='/login_page'">login</button>
+  </br>
+ {% endif %}
+
+  </div>
+  
+
+  <!-- Dashboard Options -->
+  <div class="dashboard-grid">
+    <div class="dashboard-card" onclick="location.href='/create_quiz'">
+      <div class="icon">📝</div>
+      <h4>Create Quiz</h4>
+      <p>Design and publish your own quiz</p>
+    </div>
+
+    <div class="dashboard-card" onclick="location.href='/attempt_quiz'">
+      <div class="icon">🎯</div>
+      <h4>Attempt Quiz</h4>
+      <p>Take a quiz and test your skills</p>
+    </div>
+
+    <div class="dashboard-card" onclick="location.href='/my_quizzes'">
+      <div class="icon">📋</div>
+      <h4>My Created Quizzes</h4>
+      <p>View and manage quizzes you made</p>
+    </div>
+
+    <div class="dashboard-card" onclick="location.href='/attempted_quizzes'">
+      <div class="icon">📚</div>
+      <h4>Attempted Quizzes</h4>
+      <p>Review your past quiz attempts</p>
+    </div>
+    
+    <div class="dashboard-card" onclick="location.href='/responselist'">
+      <div class="icon">📑</div>
+      <h4>Responses Recieved</h4>
+      <p>View your quiz responses</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Example: Replace this with backend logic to fetch user info
+  const userData = {
+    username: {{request.user.username}},
+    fullName: {{request.user.first_name}}
+  };
+  document.getElementById("username").textContent = userData.username;
+  document.getElementById("fullName").textContent = userData.fullName;
+</script>
+
+</body>
+</html>
