@@ -91,12 +91,12 @@
 
 <div class="score-container">
     {% for result in data %}
-    <h1>Quiz Completed 🎉</h1>
+    <h1>Quiz Completed </h1>
     <div class="score">{{result.score}}/{{result.total}}</div>
     
     <div class="details">
-        <div class="detail-box correct">✅ Correct: {{result.correct}}</div>
-        <div class="detail-box incorrect">❌ Incorrect: {{result.incorrect}}</div>
+        <div class="detail-box correct"> Correct: {{result.correct}}</div>
+        <div class="detail-box incorrect"> Incorrect: {{result.incorrect}}</div>
     </div>
     {% endfor %}
 

@@ -31,21 +31,22 @@
 <body>
 
 <div class="page-box">
-  <h2>📋 My Attempted Questions</h2>
-  {% for result in data1 %}
-  {% for result2 in data2 %}
-  {% if result2.questionid == result.questionid %}
-  <div class="quiz-item"><div>{{result.question}}</div>
-                        <div>1) {{result.op1}}</div>
-                        <div>2) {{result.op2}}</div>
-                        <div>3) {{result.op3}}</div>
-                        <div>4) {{result.op4}}</div>
-                        <div>Your Answer) {{result2.chosen_option}}</div>
-                        <div>Correct Option- {{result.correct_option}}</div>
+  <h2> My Attempted Questions</h2>
+ 
+  {% for result in data2 %}
+  {{result.questionid.questionid}}
+  <div class="quiz-item">
+                        <div>{{result.questionid.question}}</div>
+                        <div>1) {{result.questionid.op1}}</div>
+                        <div>2) {{result.questionid.op2}}</div>
+                        <div>3) {{result.questionid.op3}}</div>
+                        <div>4) {{result.questionid.op4}}</div>
+                        <div>Your Answer) {{result.chosen_option}}</div>
+                        <div>Correct Option- {{result.answer}}</div>
     </div>
-    {% endif %}
+   
     {% endfor %}
-  {% endfor %}
+
   <a href="/" class="btn btn-light mt-3">Back</a>
 </div>
 

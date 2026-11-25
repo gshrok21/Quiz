@@ -34,7 +34,7 @@
   <h2>Response List</h2>
   {% for data in result %}
 
-  <div class="attempt-item" style="display:flex;justify-content:space-between;" onclick="location.href='view_response/?quizid={{data.quizid}}'"> <h4>{{data.quizid}}</h4> </div>
+  <div class="attempt-item" style="display:flex;justify-content:space-between;" onclick="location.href='view_response/?quizid={{data.quiz_id}}'"> <h4>{{data.quiz_id}}</h4> </div>
 
   {% endfor %}
 

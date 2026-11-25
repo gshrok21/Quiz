@@ -67,7 +67,7 @@
 <body>
 
 <div class="form-box">
-  <h2>🔑 Login</h2>
+  <h2> Login</h2>
   <form action="/login_page" method="POST">
       {%csrf_token%}
     <div class="mb-3">
@@ -78,7 +78,9 @@
       <label class="form-label">Password</label>
       <input type="password" class="form-control" name="password" placeholder="Enter your password" required />
     </div>
-    <button type="submit" class="btn btn-custom">Login</button>
+    
+    <button type="submit" class="btn btn-custom" >Login</button>
+    
   </form>
   <div class="link-text">
     Don't have an account? <a href="/signup">Sign Up</a>

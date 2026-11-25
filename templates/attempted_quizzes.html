@@ -31,11 +31,11 @@
 <body>
 
 <div class="page-box">
-  <h2>📚 Attempted Quizzes</h2>
+  <h2> Attempted Quizzes</h2>
   {% for data1 in result1 %}
   {% for data2 in result2 %}
-  {% if data1.quizid == data2.quizid %}
-  <div class="attempt-item" style="display:flex;justify-content:space-between;" onclick="location.href='answerlist/?quizid={{data1.quizid}}'"><h4>{{data1.quizid}}</h4> <h4>score {{data2.score}}</h4></div>
+  {% if data1.quiz_id == data2.quiz_id.quiz_id %}
+  <div class="attempt-item" style="display:flex;justify-content:space-between;" onclick="location.href='answerlist/?quizid={{data1.quiz_id}}'"><h4>{{data1.quiz_id}}</h4> <h4>score {{data2.score}}</h4></div>
   {% endif %}
   {% endfor %}
   {% endfor %}

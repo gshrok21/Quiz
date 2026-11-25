@@ -36,7 +36,7 @@
 
   {% for result in data %}
 
-  <div class="attempt-item" style="display:flex;justify-content:space-around;" onclick="location.href='user_response/?quizid={{result.quizid}}&user={{result.attempted_by}}'"> <h4>{{result.quizid}}</h4> <h4>{{result.attempted_by}}</h4><h4>{{result.score}}</h4></div>
+  <div class="attempt-item" style="display:flex;justify-content:space-around;" onclick="location.href='user_response/?quizid={{result.quiz_id.quiz_id}}&user={{result.attempted_by.username}}'"> <h4>{{result.quiz_id.quiz_id}}</h4> <h4>{{result.attempted_by.username}}</h4><h4>{{result.score}}</h4></div>
 
   {% endfor %}
 

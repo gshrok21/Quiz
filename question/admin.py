@@ -3,7 +3,7 @@ from question.models import question_list
 
 # Register your models here.
 class admin_quizlist(admin.ModelAdmin):
-    list_display=('username', 'quizid','question')
+    list_display=('username', 'quiz_id', 'question')
     
 
     

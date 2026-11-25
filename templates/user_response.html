@@ -31,10 +31,10 @@
 <body>
 
 <div class="page-box">
-  <h2>📋 Question View</h2>
+  <h2> Question View</h2>
   {% for result in data1 %}
   {% for result2 in data2 %}
-  {% if result2.questionid == result.questionid %}
+  {% if result2.questionid.questionid == result.questionid %}
   <div class="quiz-item"><div>{{result.question}}</div>
                         <div>1) {{result.op1}}</div>
                         <div>2) {{result.op2}}</div>

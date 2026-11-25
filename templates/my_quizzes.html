@@ -31,9 +31,9 @@
 <body>
 
 <div class="page-box">
-  <h2>📋 My Created Quizzes</h2>
+  <h2> My Created Quizzes</h2>
   {% for data in result %}
-  <div class="quiz-item" onclick="location.href='questionlist/?quizid={{data.quizid}}'">{{data.quizid}}</div>
+   <div class="quiz-item" onclick="location.href='questionlist/?quizid={{data.pk}}'">{{data.pk}}) {{data.quiz_id}}</div>
   {% endfor %}
 
   <a href="/" class="btn btn-light mt-3">Back</a>
