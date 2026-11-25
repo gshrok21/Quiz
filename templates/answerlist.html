@@ -34,7 +34,7 @@
   <h2> My Attempted Questions</h2>
  
   {% for result in data2 %}
-  {{result.questionid.questionid}}
+  {{forloop.counter}}
   <div class="quiz-item">
                         <div>{{result.questionid.question}}</div>
                         <div>1) {{result.questionid.op1}}</div>
