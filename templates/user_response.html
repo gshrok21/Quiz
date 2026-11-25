@@ -32,16 +32,16 @@
 
 <div class="page-box">
   <h2> Question View</h2>
-  {% for result in data1 %}
+
   {% for result2 in data2 %}
-  {% if result2.questionid.questionid == result.questionid %}
-  <div class="quiz-item"><div>{{result.question}}</div>
-                        <div>1) {{result.op1}}</div>
-                        <div>2) {{result.op2}}</div>
-                        <div>3) {{result.op3}}</div>
-                        <div>4) {{result.op4}}</div>
+  
+  <div class="quiz-item"><div>{{result2.questionid.question}}</div>
+                        <div>1) {{result2.questionid.op1}}</div>
+                        <div>2) {{result2.questionid.op2}}</div>
+                        <div>3) {{result2.questionid.op3}}</div>
+                        <div>4) {{result2.questionid.op4}}</div>
                         <div>Chosen option- {{result2.chosen_option}}</div>
-                        <div>Correct Option- {{result.correct_option}}</div>
+                        <div>Correct Option- {{result2.correct_option}}</div>
     </div>
     {% endif %}
     {% endfor %}
